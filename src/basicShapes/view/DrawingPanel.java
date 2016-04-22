@@ -51,8 +51,8 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 600);
-				int yPosition = (int)(Math.random() * 600);
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
 				int width = (int)(Math.random() * 100);
 				int height = (int)(Math.random() * 150);
 				
