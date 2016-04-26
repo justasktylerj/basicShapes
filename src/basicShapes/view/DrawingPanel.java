@@ -8,6 +8,7 @@ import basicShapes.view.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
 
 
@@ -17,7 +18,11 @@ public class DrawingPanel extends JPanel
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
 	private JButton drawRectangleButton;
+	private JButton drawElipseButton;
+	private JButton drawPolygonButton;
 	private ArrayList<Rectangle> rectangleList;
+	private ArrayList<Ellipse> ellipseList;
+	private ArrayList<Polygon> polygonList;
 	
 	public DrawingPanel(DrawingController baseController)
 	{
@@ -25,8 +30,12 @@ public class DrawingPanel extends JPanel
 		baseLayout = new SpringLayout();
 		shapePanel = new ShapePanel();
 		rectangleList = new ArrayList<Rectangle>();
+		ellipseList = new ArrayList<Ellipse>();
+		polygonList = new ArrayList<Polygon>();
 		
 		drawRectangleButton = new JButton("draw the rectangle");
+		drawEllipseButton = new JButton("draw the ellipse");
+		drawPolygonButton = new JButton("draw the polygon");
 		
 		setupPanel();
 		setupLayout();
@@ -38,6 +47,9 @@ public class DrawingPanel extends JPanel
 	{
 		this.setBackground(Color.BLACK);
 		this.add(drawRectangleButton);
+		this.add(drawEllipseButton);
+		this.add(drawPolygonButton);
+		
 	}
 	
 	private void setupLayout()

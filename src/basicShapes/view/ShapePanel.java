@@ -12,7 +12,7 @@ public class ShapePanel extends JPanel
 {
 	private ArrayList<Rectangle> rectangleList;
 	
-	public ShapePanel();
+	public ShapePanel()
 	{
 		rectangleList = new ArrayList<Rectangle>();
 	}
@@ -21,6 +21,7 @@ public class ShapePanel extends JPanel
 	{
 		rectangleList.add(new Rectangle(10, 20, 50, 10));
 	}
+	
 	
 	@Override
 	protected void paintComponent(Graphics currentGraphics)
