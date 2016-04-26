@@ -41,9 +41,9 @@ public class DrawingPanel extends JPanel
 		drawRectangleButton = new JButton("rectangle");
 		drawEllipseButton = new JButton("ellipse");
 		drawPolygonButton = new JButton("polygon");
-		drawSquareButton = new JButton("rectangle");
-		drawCircleButton = new JButton("ellipse");
-		drawTriangleButton = new JButton("polygon");
+		drawSquareButton = new JButton("square");
+		drawCircleButton = new JButton("circle");
+		drawTriangleButton = new JButton("triangle");
 		
 		setupPanel();
 		setupLayout();
@@ -59,9 +59,7 @@ public class DrawingPanel extends JPanel
 		this.add(drawPolygonButton);
 		this.add(drawSquareButton);
 		this.add(drawCircleButton);
-		this.add(drawTriangleButton);
-		
-		
+		this.add(drawTriangleButton);	
 	}
 	
 	private void setupLayout()
@@ -85,7 +83,6 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addEllipse();
-				
 				repaint();
 			}
 		});
@@ -95,7 +92,6 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addPolygon();
-				
 				repaint();
 			}
 		});
@@ -105,6 +101,7 @@ public class DrawingPanel extends JPanel
 			public void actionPerformed(ActionEvent click)
 			{
 				shapePanel.addSquare();
+				repaint();
 			}
 		});
 		
@@ -112,8 +109,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				shapePanel.addCircle();
-				
+				shapePanel.addCircle();				
 				repaint();
 			}
 		});
@@ -136,9 +132,69 @@ public class DrawingPanel extends JPanel
 		Graphics2D mainGraphics = (Graphics2D)currentGraphics;
 		mainGraphics.setColor(Color.GREEN);
 		mainGraphics.setStroke(new BasicStroke(5));
-		mainGraphics.draw(new Rectangle(90, 10, 20, 40));
+//		mainGraphics.draw(new Rectangle(90, 10, 20, 40));
 		
 		for (Rectangle current : rectangleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Rectangle current : squareList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Polygon current : triangleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Polygon current : polygonList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Ellipse2D current : ellipseList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Ellipse2D current : circleList)
 		{
 			int randomStroke = (int)(Math.random() * 7);
 			int red = (int)(Math.random() * 256);
