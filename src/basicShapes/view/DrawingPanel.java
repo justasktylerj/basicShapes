@@ -17,6 +17,7 @@ public class DrawingPanel extends JPanel
 	private DrawingController baseController;
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
+
 	private JButton drawRectangleButton;
 	private JButton drawEllipseButton;
 	private JButton drawPolygonButton;
@@ -50,7 +51,6 @@ public class DrawingPanel extends JPanel
 		drawSquareButton = new JButton("rectangle");
 		drawCircleButton = new JButton("ellipse");
 		drawTriangleButton = new JButton("polygon");
-		
 		
 		setupPanel();
 		setupLayout();
@@ -145,7 +145,7 @@ public class DrawingPanel extends JPanel
 			{
 				int xPosition = (int)(Math.random() * 800);
 				int yPosition = (int)(Math.random() * 800);
-				
+				shapePanel.addTriangle();
 				repaint();
 			}
 		});
