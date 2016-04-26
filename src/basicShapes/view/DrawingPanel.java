@@ -20,8 +20,15 @@ public class DrawingPanel extends JPanel
 	private JButton drawRectangleButton;
 	private JButton drawElipseButton;
 	private JButton drawPolygonButton;
+	private JButton drawSquareButton;
+	private JButton drawCircleButton;
+	private JButton drawTriangleButton;
+	
 	private ArrayList<Rectangle> rectangleList;
-	private ArrayList<Ellipse> ellipseList;
+	private ArrayList<Rectangle> squareList;
+	private ArrayList<Ellipse2D> ellipseList;
+	private ArrayList<Ellipse2D> circleList;
+	private ArrayList<Polygon> triangleList;
 	private ArrayList<Polygon> polygonList;
 	
 	public DrawingPanel(DrawingController baseController)
@@ -29,13 +36,21 @@ public class DrawingPanel extends JPanel
 		this.baseController = baseController;
 		baseLayout = new SpringLayout();
 		shapePanel = new ShapePanel();
-		rectangleList = new ArrayList<Rectangle>();
-		ellipseList = new ArrayList<Ellipse>();
-		polygonList = new ArrayList<Polygon>();
 		
-		drawRectangleButton = new JButton("draw the rectangle");
-		drawEllipseButton = new JButton("draw the ellipse");
-		drawPolygonButton = new JButton("draw the polygon");
+		rectangleList = new ArrayList<Rectangle>();
+		ellipseList = new ArrayList<Ellipse2D>();
+		polygonList = new ArrayList<Polygon>();
+		circleList = new ArrayList<Ellipse2D>();
+		squareList = new ArrayList<Rectangle>();
+		triangleList = new ArrayList<Polygon>();
+		
+		drawRectangleButton = new JButton("rectangle");
+		drawEllipseButton = new JButton("ellipse");
+		drawPolygonButton = new JButton("polygon");
+		drawSquareButton = new JButton("rectangle");
+		drawCircleButton = new JButton("ellipse");
+		drawTriangleButton = new JButton("polygon");
+		
 		
 		setupPanel();
 		setupLayout();
@@ -60,6 +75,34 @@ public class DrawingPanel extends JPanel
 	private void setupListeners()
 	{
 		drawRectangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				int width = (int)(Math.random() * 100);
+				int height = (int)(Math.random() * 150);
+				
+				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
+		
+		drawEllipseButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				int width = (int)(Math.random() * 100);
+				int height = (int)(Math.random() * 150);
+				
+				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
+		
+		drawPolygonButton.addActionListener(new ActionListener()
 		{
 			public void actionPerformed(ActionEvent click)
 			{
