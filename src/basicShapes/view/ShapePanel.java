@@ -24,44 +24,70 @@ public class ShapePanel extends JPanel
 		circleList = new ArrayList<Ellipse2D>();
 		polygonList = new ArrayList<Polygon>();
 		triangleList = new ArrayList<Polygon>();
-		
 	}
 	
 	public void addRectangle()
 	{
-		rectangleList.add(new Rectangle(10, 20, 50, 10));
+		int [] xPoints = new int [4];
+		int [] yPoints = new int [4];
+		xPoints [0] = (int)(Math.random() * 800);
+		int width = (int)(Math.random() * 100);
+		int height = (int)(Math.random() * 100);
+		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		
+		Rectangle rectangle = new Rectangle(width, height);
+		rectangleList.add(rectangle);
 	}
 	
 	public void addSquare()
 	{
-		squareList.add(new Rectangle(10, 20, 50, 10));
+		int [] xPoints = new int [4];
+		int [] yPoints = new int [4];
+		xPoints [0] = (int)(Math.random() * 800);
+		int length = (int)(Math.random() * 100);
+		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		
+		Rectangle square = new Rectangle(length, length);
+		squareList.add(square);
 	}
 	
 	public void addEllipse()
 	{
+		int xPoint = (int)(Math.random() * 1000);
+		int yPoint = (int)(Math.random() * 1000);
+		int width = (int)(Math.random() * 100);
+		int height = (int)(Math.random() * 100);
 		
+		Ellipse2D ellipse = new Ellipse2D.Double(xPoint, yPoint, width, height);
+		ellipseList.add(ellipse);
 	}
 	
-	public void addcircle()
+	public void addCircle()
 	{
+		int xPoint = (int)(Math.random() * 1000);
+		int yPoint = (int)(Math.random() * 1000);
+		int diameter = (int)(Math.random() * 100);
 		
+		Ellipse2D circle = new Ellipse2D.Double(xPoint, yPoint, diameter, diameter);
+		circleList.add(circle);
 	}
 	
-	public void addtriangle()
+	public void addTriangle()
 	{
 		int [] xPoints = new int [3];
 		int [] yPoints = new int [3];
-		//xPoints[0] = (int)(Math.random() * 250);
-		xPoints = new int []{(int)(Math.random() * 250), (int)(Math.random() * 250), (int)(Math.random() * 250)};
-		yPoints = new int []{(int)(Math.random() * 250), (int)(Math.random() * 250), (int)(Math.random() * 250)};
+		xPoints[0] = (int)(Math.random() * 800);
+		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
 		
 		Polygon triangle = new Polygon(xPoints, yPoints, 3);
-		
 		triangleList.add(triangle);
 		
 	}
 	
-	public void addpolygon()
+	public void addPolygon()
 	{
 		int numberOfSides = (int)(Math.random() * 10) + 3;
 		int [] xPoints = new int [numberOfSides];
@@ -69,12 +95,12 @@ public class ShapePanel extends JPanel
 		
 		for (int sides = 0; sides < numberOfSides; sides++)
 		{
-			xPoints[sides] = (int)(Math.random() * 300);
-			yPoints[sides] = (int)(Math.random() * 300);
+			xPoints[sides] = (int)(Math.random() * 800);
+			yPoints[sides] = (int)(Math.random() * 800);
 		}
 		
-		Polygon myPolygon = new Polygon(xPoints, yPoints, numberOfSides);
-		polygonList.add(myPolygon);
+		Polygon polygon = new Polygon(xPoints, yPoints, numberOfSides);
+		polygonList.add(polygon);
 	}
 	
 	
