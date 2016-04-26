@@ -35,7 +35,7 @@ public class ShapePanel extends JPanel
 	
 	public void addSquare()
 	{
-		rectangleList.add(new Rectangle(10, 20, 50, 10));
+		squareList.add(new Rectangle(10, 20, 50, 10));
 	}
 	
 	public void addEllipse()
@@ -83,7 +83,7 @@ public class ShapePanel extends JPanel
 	@Override
 	protected void paintComponent(Graphics currentGraphics)
 	{
-		
+		super.paintComponent(currentGraphics);
 	}
 }
 

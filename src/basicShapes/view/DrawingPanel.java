@@ -18,7 +18,7 @@ public class DrawingPanel extends JPanel
 	private SpringLayout baseLayout;
 	private ShapePanel shapePanel;
 	private JButton drawRectangleButton;
-	private JButton drawElipseButton;
+	private JButton drawEllipseButton;
 	private JButton drawPolygonButton;
 	private JButton drawSquareButton;
 	private JButton drawCircleButton;
@@ -64,6 +64,10 @@ public class DrawingPanel extends JPanel
 		this.add(drawRectangleButton);
 		this.add(drawEllipseButton);
 		this.add(drawPolygonButton);
+		this.add(drawSquareButton);
+		this.add(drawCircleButton);
+		this.add(drawTriangleButton);
+		
 		
 	}
 	
@@ -94,10 +98,7 @@ public class DrawingPanel extends JPanel
 			{
 				int xPosition = (int)(Math.random() * 800);
 				int yPosition = (int)(Math.random() * 800);
-				int width = (int)(Math.random() * 100);
-				int height = (int)(Math.random() * 150);
 				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
 				repaint();
 			}
 		});
@@ -108,10 +109,43 @@ public class DrawingPanel extends JPanel
 			{
 				int xPosition = (int)(Math.random() * 800);
 				int yPosition = (int)(Math.random() * 800);
-				int width = (int)(Math.random() * 100);
-				int height = (int)(Math.random() * 150);
 				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
+		
+		drawSquareButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				int width = (int)(Math.random() * 100);
+				int height = width;
+				
+				squareList.add(new Rectangle(xPosition, yPosition, width, height));
+				repaint();
+			}
+		});
+		
+		drawCircleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				
+				repaint();
+			}
+		});
+		
+		drawTriangleButton.addActionListener(new ActionListener()
+		{
+			public void actionPerformed(ActionEvent click)
+			{
+				int xPosition = (int)(Math.random() * 800);
+				int yPosition = (int)(Math.random() * 800);
+				
 				repaint();
 			}
 		});
