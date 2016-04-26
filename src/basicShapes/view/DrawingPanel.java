@@ -38,13 +38,6 @@ public class DrawingPanel extends JPanel
 		baseLayout = new SpringLayout();
 		shapePanel = new ShapePanel();
 		
-		rectangleList = new ArrayList<Rectangle>();
-		ellipseList = new ArrayList<Ellipse2D>();
-		polygonList = new ArrayList<Polygon>();
-		circleList = new ArrayList<Ellipse2D>();
-		squareList = new ArrayList<Rectangle>();
-		triangleList = new ArrayList<Polygon>();
-		
 		drawRectangleButton = new JButton("rectangle");
 		drawEllipseButton = new JButton("ellipse");
 		drawPolygonButton = new JButton("polygon");
@@ -82,12 +75,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
-				int width = (int)(Math.random() * 100);
-				int height = (int)(Math.random() * 150);
-				
-				rectangleList.add(new Rectangle(xPosition, yPosition, width, height));
+				shapePanel.addRectangle();
 				repaint();
 			}
 		});
@@ -96,8 +84,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
+				shapePanel.addEllipse();
 				
 				repaint();
 			}
@@ -107,8 +94,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
+				shapePanel.addPolygon();
 				
 				repaint();
 			}
@@ -118,13 +104,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
-				int width = (int)(Math.random() * 100);
-				int height = width;
-				
-				squareList.add(new Rectangle(xPosition, yPosition, width, height));
-				repaint();
+				shapePanel.addSquare();
 			}
 		});
 		
@@ -132,8 +112,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
+				shapePanel.addCircle();
 				
 				repaint();
 			}
@@ -143,8 +122,7 @@ public class DrawingPanel extends JPanel
 		{
 			public void actionPerformed(ActionEvent click)
 			{
-				int xPosition = (int)(Math.random() * 800);
-				int yPosition = (int)(Math.random() * 800);
+	
 				shapePanel.addTriangle();
 				repaint();
 			}

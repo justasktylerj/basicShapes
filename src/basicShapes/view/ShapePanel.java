@@ -25,7 +25,6 @@ public class ShapePanel extends JPanel
 		polygonList = new ArrayList<Polygon>();
 		triangleList = new ArrayList<Polygon>();
 		
-		
 	}
 	
 	public void addRectangle()
