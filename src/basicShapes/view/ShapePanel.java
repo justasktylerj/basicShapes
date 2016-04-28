@@ -3,7 +3,9 @@ package basicShapes.view;
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
 import java.util.ArrayList;
+
 import javax.swing.*;
+
 import basicShapes.controller.*;
 import basicShapes.view.*;
 
@@ -109,6 +111,77 @@ public class ShapePanel extends JPanel
 	protected void paintComponent(Graphics currentGraphics)
 	{
 		super.paintComponent(currentGraphics);
+		Graphics2D mainGraphics = (Graphics2D)currentGraphics;
+		
+		for (Rectangle current : rectangleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			mainGraphics.draw(current);
+		}
+		
+		for (Rectangle current : squareList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			mainGraphics.fill(current);
+		}
+		
+		for (Polygon current : triangleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			mainGraphics.draw(current);
+		}
+		
+		for (Polygon current : polygonList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Ellipse2D current : ellipseList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.fill(current);
+		}
+		
+		for (Ellipse2D current : circleList)
+		{
+			int randomStroke = (int)(Math.random() * 7);
+			int red = (int)(Math.random() * 256);
+			int blue = (int)(Math.random() * 256);
+			int green = (int)(Math.random() * 256);
+			mainGraphics.setColor(new Color(red, blue, green));
+			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			
+			mainGraphics.draw(current);
+		}	
 	}
+	
 }
 
