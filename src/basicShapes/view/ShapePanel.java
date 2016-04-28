@@ -30,29 +30,23 @@ public class ShapePanel extends JPanel
 	
 	public void addRectangle()
 	{
-		int [] xPoints = new int [4];
-		int [] yPoints = new int [4];
-		xPoints [0] = (int)(Math.random() * 800);
 		int width = (int)(Math.random() * 100);
 		int height = (int)(Math.random() * 100);
-		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
-		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		int xPosition = (int)(Math.random() * 800);
+		int yPosition = (int)(Math.random() * 800);
 		
-		Rectangle rectangle = new Rectangle(width, height);
+		Rectangle rectangle = new Rectangle(xPosition, yPosition, width, height);
 		rectangleList.add(rectangle);
 	}
 	
 	public void addSquare()
 	{
-		int [] xPoints = new int [4];
-		int [] yPoints = new int [4];
-		xPoints [0] = (int)(Math.random() * 800);
-		int length = (int)(Math.random() * 100);
-		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
-		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
+		int side = (int)(Math.random() * 200);
+		int xPosition = (int)(Math.random() * 800);
+		int yPosition = (int)(Math.random() * 800);
 		
-		Rectangle square = new Rectangle(length, length);
-		squareList.add(square);
+		Rectangle rectangle = new Rectangle(xPosition, yPosition, side, side);
+		squareList.add(rectangle);
 	}
 	
 	public void addEllipse()
