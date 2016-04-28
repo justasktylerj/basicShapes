@@ -62,8 +62,8 @@ public class ShapePanel extends JPanel
 		int width = (int)(Math.random() * 100);
 		int height = (int)(Math.random() * 100);
 		
-		Ellipse2D ellipse = new Ellipse2D.Double(xPoint, yPoint, width, height);
-		ellipseList.add(ellipse);
+		Ellipse2D currentEllipse = new Ellipse2D.Double(xPoint, yPoint, width, height);
+		ellipseList.add(currentEllipse);
 	}
 	
 	public void addCircle()
@@ -84,8 +84,8 @@ public class ShapePanel extends JPanel
 		xPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
 		yPoints = new int []{(int)(Math.random() * 800), (int)(Math.random() * 800), (int)(Math.random() * 800)};
 		
-		Polygon triangle = new Polygon(xPoints, yPoints, 3);
-		triangleList.add(triangle);
+		Polygon currentTriangle = new Polygon(xPoints, yPoints, 3);
+		triangleList.add(currentTriangle);
 		
 	}
 	
@@ -113,74 +113,48 @@ public class ShapePanel extends JPanel
 		super.paintComponent(currentGraphics);
 		Graphics2D mainGraphics = (Graphics2D)currentGraphics;
 		
-		for (Rectangle current : rectangleList)
-		{
-			int randomStroke = (int)(Math.random() * 7);
-			int red = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
-			mainGraphics.setColor(new Color(red, blue, green));
-			mainGraphics.setStroke(new BasicStroke(randomStroke));
-			mainGraphics.draw(current);
-		}
+		drawShapes(mainGraphics, circleList);
+		drawShapes(mainGraphics, ellipseList);
+		drawShapes(mainGraphics, rectangleList);
+		drawShapes(mainGraphics, squareList);
+		drawShapes(mainGraphics, triangleList);
+		drawShapes(mainGraphics, polygonList);
 		
-		for (Rectangle current : squareList)
-		{
-			int randomStroke = (int)(Math.random() * 7);
-			int red = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
-			mainGraphics.setColor(new Color(red, blue, green));
-			mainGraphics.setStroke(new BasicStroke(randomStroke));
-			mainGraphics.fill(current);
-		}
 		
-		for (Polygon current : triangleList)
+	}
+	
+	private void drawShapes(Graphics2D mainGraphics, ArrayList shapeList)
+	{
+		for(Object currentShape : shapeList)
 		{
-			int randomStroke = (int)(Math.random() * 7);
+			currentShape = (Shape) currentShape;
+			int randomStroke = (int)(Math.random() * 10) + 3;
 			int red = (int)(Math.random() * 256);
 			int blue = (int)(Math.random() * 256);
 			int green = (int)(Math.random() * 256);
-			mainGraphics.setColor(new Color(red, blue, green));
-			mainGraphics.setStroke(new BasicStroke(randomStroke));
-			mainGraphics.draw(current);
-		}
-		
-		for (Polygon current : polygonList)
-		{
-			int randomStroke = (int)(Math.random() * 7);
-			int red = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
-			mainGraphics.setColor(new Color(red, blue, green));
-			mainGraphics.setStroke(new BasicStroke(randomStroke));
 			
-			mainGraphics.fill(current);
-		}
-		
-		for (Ellipse2D current : ellipseList)
-		{
-			int randomStroke = (int)(Math.random() * 7);
-			int red = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
 			mainGraphics.setColor(new Color(red, blue, green));
 			mainGraphics.setStroke(new BasicStroke(randomStroke));
+			if(currentShape instanceof Polygon)
+			{
+				mainGraphics.draw((Shape)currentShape);
+			}
+			else
+			{
+				mainGraphics.fill((Shape)currentShape);
+			}
 			
-			mainGraphics.fill(current);
 		}
-		
-		for (Ellipse2D current : circleList)
-		{
-			int randomStroke = (int)(Math.random() * 7);
-			int red = (int)(Math.random() * 256);
-			int blue = (int)(Math.random() * 256);
-			int green = (int)(Math.random() * 256);
-			mainGraphics.setColor(new Color(red, blue, green));
-			mainGraphics.setStroke(new BasicStroke(randomStroke));
-			
-			mainGraphics.draw(current);
-		}	
+	}
+	
+	public void clear()
+	{
+		rectangleList.clear();
+		squareList.clear();
+		ellipseList.clear();
+		circleList.clear();
+		polygonList.clear();
+		triangleList.clear();
 	}
 	
 }
